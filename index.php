@@ -34,12 +34,18 @@ Class Girl
 	public function nameStrlen($name)
 	{
 		echo $nameStr = mb_strlen($name)." letters in name.<br/>";
-	}
+	}	
 }
 
 //Open files with names
 $boysNamesArray = file("Boys.txt");
 $girlsNamesArray = file("Girls.txt");
+
+//Check there are necessary files in the directory
+if ($boysNamesArray==null || $girlsNamesArray==null)
+{
+	exit ("File Boys.txt or Girls.txt not found! Please create file and try again!");
+}
 
 //Get date
 $time = getdate();
